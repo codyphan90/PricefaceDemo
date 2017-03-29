@@ -4,6 +4,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	
 	<h:form>            
 <!--     <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login"> -->
@@ -16,16 +17,29 @@
         <h:panelGrid columns="2" cellpadding="5">
             <h:outputLabel for="username" value="Username:" />
             <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username" />
+            
  
             <h:outputLabel for="password" value="Password:" />
             <p:password id="password" value="#{userLoginView.password}" required="true" label="password" />
  
             <f:facet name="footer">
-                <p:commandButton value="Login" update="growl" actionListener="#{userLoginView.checkLogin}"  />
+                <p:commandButton value="Login" update="growl" actionListener="#{userLoginView.checkLogin}" 
+                oncomplete="handleLoginRequest(xhr, status, args)" />
 
             </f:facet>  
         </h:panelGrid>
     </p:dialog>
 </h:form>
  
+ <script type="text/javascript">
+    function handleLoginRequest(xhr, status, args) {
+        if(args.validationFailed || !args.loggedIn) {
+            PF('dlg').jq.effect("shake", {times:5}, 100);
+        }
+        else {
+            PF('dlg').hide();
+            $('#loginLink').fadeOut();
+        }
+    }
+</script>
 </html>
