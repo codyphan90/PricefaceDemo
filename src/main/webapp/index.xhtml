@@ -4,12 +4,9 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	
 	<h:form>            
-<!--     <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login"> -->
-<!--         <p:graphicImage name="/demo/images/login.png" /> -->
-<!--     </h:outputLink> -->
+
  
     <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
  
@@ -31,15 +28,5 @@
     </p:dialog>
 </h:form>
  
- <script type="text/javascript">
-    function handleLoginRequest(xhr, status, args) {
-        if(args.validationFailed || !args.loggedIn) {
-            PF('dlg').jq.effect("shake", {times:5}, 100);
-        }
-        else {
-            PF('dlg').hide();
-            $('#loginLink').fadeOut();
-        }
-    }
-</script>
+
 </html>

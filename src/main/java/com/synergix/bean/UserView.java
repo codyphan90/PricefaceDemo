@@ -2,13 +2,16 @@ package com.synergix.bean;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
  
 @ManagedBean
+@SessionScoped
 public class UserView {
      
     private String firstname;
     private String lastname;
+    private String email;
  
     public String getFirstname() {
         return firstname;
@@ -25,8 +28,17 @@ public class UserView {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+    
  
-    public void save() {
+    public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void save() {
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage("Welcome " + firstname + " " + lastname));
     }
