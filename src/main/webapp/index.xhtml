@@ -4,19 +4,28 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<p:outputLabel value="Demo DataTable PriceFaces"></p:outputLabel>
-<p:dataTable value="#{viewEmployeeManagedBean.employees}" var="employee">
-	<p:column>
-		<f:facet name="header">
-			<h:outputText value="Employee ID" />
-		</f:facet>
-		<h:outputText value="#{employee.employeeID}" />
-	</p:column>
-	<p:column>
-		<f:facet name="header">
-			<h:outputText value="Employee Name" />
-		</f:facet>
-		<h:outputText value="#{employee.employeeName}" />
-	</p:column>
-</p:dataTable>
+	
+	<h:form>            
+<!--     <h:outputLink value="javascript:void(0)" onclick="PF('dlg').show();" title="login"> -->
+<!--         <p:graphicImage name="/demo/images/login.png" /> -->
+<!--     </h:outputLink> -->
+ 
+    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+ 
+    <p:dialog header="Login" widgetVar="dlg" resizable="false">
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="username" value="Username:" />
+            <p:inputText id="username" value="#{userLoginView.username}" required="true" label="username" />
+ 
+            <h:outputLabel for="password" value="Password:" />
+            <p:password id="password" value="#{userLoginView.password}" required="true" label="password" />
+ 
+            <f:facet name="footer">
+                <p:commandButton value="Login" update="growl" actionListener="#{userLoginView.checkLogin}"  />
+
+            </f:facet>  
+        </h:panelGrid>
+    </p:dialog>
+</h:form>
+ 
 </html>

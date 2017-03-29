@@ -1,4 +1,4 @@
-package com.synergix.controller;
+package com.synergix.bean;
 import java.util.ArrayList;
 import java.util.List;
 
