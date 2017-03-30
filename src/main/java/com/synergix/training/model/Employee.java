@@ -1,5 +1,9 @@
 package com.synergix.training.model;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+
 public class Employee {
 	private String employeeID;
 	private String employeeName;

@@ -13,7 +13,7 @@ public class UserView {
     private String lastname;
     private String email;
  
-    public String getFirstname() {
+    public String username() {
         return firstname;
     }
  

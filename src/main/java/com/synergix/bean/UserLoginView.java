@@ -29,18 +29,19 @@ public class UserLoginView {
 //		public void checkLogin( ){
 		RequestContext context = RequestContext.getCurrentInstance();
 		FacesMessage message = null;
-		boolean loginedIn = false;
+//		boolean loginedIn = false;
 		if (username != null && username.equals("admin") && password !=null && password.equals("123")){
-			loginedIn = true;
-			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome ", username);
+//			loginedIn = true;
+			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome " + username,"Login");
 			System.out.println("login susccess!!!");
 		} else {
-			loginedIn = false;
+//			loginedIn = false;
 			message = new FacesMessage(FacesMessage.SEVERITY_WARN,"Loggin Error","Invaid credentials");
 			System.out.println("login fail!!!");
 		}
+		
 		FacesContext.getCurrentInstance().addMessage(null, message);
-		context.addCallbackParam("loginedIn", loginedIn);
+//		context.addCallbackParam("loginedIn", loginedIn);
 	}
 
 }
