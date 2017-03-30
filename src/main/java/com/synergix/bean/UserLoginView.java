@@ -32,11 +32,11 @@ public class UserLoginView {
 //		boolean loginedIn = false;
 		if (username != null && username.equals("admin") && password !=null && password.equals("123")){
 //			loginedIn = true;
-			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome " + username,"Login");
+			message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome " + username,"Login success");
 			System.out.println("login susccess!!!");
 		} else {
 //			loginedIn = false;
-			message = new FacesMessage(FacesMessage.SEVERITY_WARN,"Loggin Error","Invaid credentials");
+			message = new FacesMessage(FacesMessage.SEVERITY_WARN,"Invaid credentials","Login fail");
 			System.out.println("login fail!!!");
 		}
 		
